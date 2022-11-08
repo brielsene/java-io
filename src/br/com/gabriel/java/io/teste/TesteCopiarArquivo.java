@@ -3,6 +3,7 @@ package br.com.gabriel.java.io.teste;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,41 +12,37 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.net.Socket;
 
-public class TesteLeituraEscrita {
+public class TesteCopiarArquivo {
 
 	public static void main(String[] args) throws IOException {
+		//Rede
+		Socket s = new Socket();
 		
-		//Leitura
-		InputStream fis = new FileInputStream("gabriel.txt");
+		InputStream fis = s.getInputStream();//System.in;// FileInputStream("gabriel.txt"); 
 		Reader isr = new InputStreamReader(fis);
 		BufferedReader br = new BufferedReader(isr);
 		
-		
 		//Escrita
-		OutputStream osl = new FileOutputStream("gabriel.txt3");
-		Writer osw = new OutputStreamWriter(osl);
+		OutputStream fos = s.getOutputStream();//System.out; //new FileOutputStream("gabriel3.txt");
+		Writer osw = new OutputStreamWriter(fos);
 		BufferedWriter bw = new BufferedWriter(osw);
 		
-		//Copia da Leitura para escrita
-//		bw.write(br.readLine());
-//		bw.newLine();
-//		bw.write(br.readLine());
-//		bw.newLine();
-//		bw.write(br.readLine());
-//		bw.newLine();
+		String linha = br.readLine();
 		
-		//Automatizar
-		for(int i=0;i<=2;i++) {
-			bw.write(br.readLine());
+		
+		
+		while (linha != null && !linha.isEmpty()) {
+			bw.write(linha);
 			bw.newLine();
-			
+			linha = br.readLine();
 		}
-		
-		
 		
 		br.close();
 		bw.close();
+		
+		
 
 	}
 
