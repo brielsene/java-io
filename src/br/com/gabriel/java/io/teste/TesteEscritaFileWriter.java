@@ -13,20 +13,22 @@ public class TesteEscritaFileWriter {
 	public static void main(String[] args) throws IOException {
 		
 		//Classe FileWriter
-		FileWriter fw = new FileWriter("teste.txt");
+//		FileWriter fw = new FileWriter("teste.txt");
 		
 		//Que é a mesma coisa que:
 		//OutputStream fos = new FileOutputStream("gabriel2.txt");
 //		Writer osw = new OutputStreamWriter(fos);
 //		BufferedWriter bw = new BufferedWriter(osw);
 		
-		BufferedWriter bw = new BufferedWriter(fw);
+		BufferedWriter bw = new BufferedWriter(new FileWriter ("teste2.txt"));
 		
 		bw.write("Olá");
 		
 		bw.newLine();
 	
 		bw.write("tudo bem?");
+		
+		bw.newLine();
 		
 		
 		bw.close();
