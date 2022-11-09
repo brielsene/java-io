@@ -1,7 +1,9 @@
 package br.com.gabriel.java.io.teste;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -20,18 +22,20 @@ public class TesteEscritaFileWriter {
 //		Writer osw = new OutputStreamWriter(fos);
 //		BufferedWriter bw = new BufferedWriter(osw);
 		
+		BufferedReader br = new BufferedReader(new FileReader("gabriel.txt"));
+		
 		BufferedWriter bw = new BufferedWriter(new FileWriter ("teste2.txt"));
 		
-		bw.write("Olá");
-		
+		bw.write(br.readLine());
 		bw.newLine();
-	
-		bw.write("tudo bem?");
-		
+		bw.write(br.readLine());
+		bw.newLine();
+		bw.write(br.readLine());
 		bw.newLine();
 		
 		
 		bw.close();
+		br.close();
 	}
 
 }
