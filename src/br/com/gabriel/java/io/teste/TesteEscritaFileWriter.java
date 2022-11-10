@@ -24,7 +24,7 @@ public class TesteEscritaFileWriter {
 		
 		BufferedReader br = new BufferedReader(new FileReader("gabriel.txt"));
 		
-		BufferedWriter bw = new BufferedWriter(new FileWriter ("teste2.txt"));
+		BufferedWriter bw = new BufferedWriter(new FileWriter ("teste2.csv"));
 		
 		bw.write(br.readLine());
 		bw.newLine();
